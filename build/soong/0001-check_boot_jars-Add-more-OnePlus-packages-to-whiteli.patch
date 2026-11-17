@@ -1,0 +1,29 @@
+From 65c575a4d7db2cfb05a4bacc18e22d61488b3fec Mon Sep 17 00:00:00 2001
+From: ShevT <evgeny.shishkov@gmail.com>
+Date: Mon, 11 Mar 2024 16:40:11 +0000
+Subject: [PATCH] check_boot_jars: Add more OnePlus packages to whitelist
+
+Change-Id: I55ea27506f9a19e35c6c53e7bc71dd5689a21f77
+---
+ scripts/check_boot_jars/package_allowed_list.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/scripts/check_boot_jars/package_allowed_list.txt b/scripts/check_boot_jars/package_allowed_list.txt
+index be1f95a67..fd81e439f 100644
+--- a/scripts/check_boot_jars/package_allowed_list.txt
++++ b/scripts/check_boot_jars/package_allowed_list.txt
+@@ -291,6 +291,11 @@ com\.nvidia\..*
+ 
+ # OPLUS adds
+ com\.oplus\..*
++net\.oneplus\..*
++oplus\..*
++vendor\.oplus\..*
++com\.oneplus\..*
++vendor\.oneplus\..*
+ 
+ # QC adds
+ com.qualcomm.qti
+-- 
+2.34.1
+

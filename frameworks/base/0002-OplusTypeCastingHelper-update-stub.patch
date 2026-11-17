@@ -1,0 +1,29 @@
+From f2ab8d360537e977bf424a13fa6e60695f025b14 Mon Sep 17 00:00:00 2001
+From: arnodorian-r <geekroy98@gmail.com>
+Date: Fri, 8 Nov 2024 10:40:33 -0500
+Subject: [PATCH 2/2] OplusTypeCastingHelper: update stub
+
+Signed-off-by: Pranav Vashi <neobuddy89@gmail.com>
+---
+ core/java/com/oplus/util/OplusTypeCastingHelper.java | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/core/java/com/oplus/util/OplusTypeCastingHelper.java b/core/java/com/oplus/util/OplusTypeCastingHelper.java
+index fb89699ee373..4819e9f20b72 100644
+--- a/core/java/com/oplus/util/OplusTypeCastingHelper.java
++++ b/core/java/com/oplus/util/OplusTypeCastingHelper.java
+@@ -1,3 +1,10 @@
+ package com.oplus.util;
+ 
+-public final class OplusTypeCastingHelper { }
++public final class OplusTypeCastingHelper {
++    public static <T> T typeCasting(Class<T> type, Object object) {
++        if (object != null && type.isInstance(object)) {
++            return type.cast(object);
++        }
++        return null;
++    }
++}
+-- 
+2.34.1
+

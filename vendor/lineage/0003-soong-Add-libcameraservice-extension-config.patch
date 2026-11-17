@@ -1,0 +1,29 @@
+From a0a31c594a41d8dccb09cc0eb6e6b7def458f1e7 Mon Sep 17 00:00:00 2001
+From: Dhina17 <dhinalogu@gmail.com>
+Date: Sat, 13 Sep 2025 21:13:47 +0800
+Subject: [PATCH 3/3] soong: Add libcameraservice extension config
+
+Change-Id: Ic5e658ff86c1be97203906c15c49f4230403a9f8
+Signed-off-by: rmp22 <195054967+rmp22@users.noreply.github.com>
+---
+ config/BoardConfigSoong.mk | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/config/BoardConfigSoong.mk b/config/BoardConfigSoong.mk
+index 5e5301a2..a6fd29ad 100644
+--- a/config/BoardConfigSoong.mk
++++ b/config/BoardConfigSoong.mk
+@@ -47,6 +47,10 @@ ifneq ($(TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB_OPLUS),)
+     $(error TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB_OPLUS is deprecated, please migrate to soong_config_set,camera,needs_client_info_lib_oplus)
+ endif
+ 
++ifneq ($(TARGET_CAMERA_SERVICE_EXT_LIB),)
++    $(call soong_config_set,libcameraservice,ext_lib,$(TARGET_CAMERA_SERVICE_EXT_LIB))
++endif
++
+ # Charger
+ lineage_charger_density := mdpi
+ ifneq (,$(TARGET_SCREEN_DENSITY))
+-- 
+2.34.1
+

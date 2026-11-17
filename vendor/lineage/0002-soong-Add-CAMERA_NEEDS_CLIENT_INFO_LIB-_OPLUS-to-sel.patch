@@ -1,0 +1,36 @@
+From 1dacf0e8914014ff4fa1fdcfc53d05dfe7e2f49c Mon Sep 17 00:00:00 2001
+From: Pranav Vashi <neobuddy89@gmail.com>
+Date: Sun, 11 May 2025 20:20:07 +0530
+Subject: [PATCH 2/3] soong: Add CAMERA_NEEDS_CLIENT_INFO_LIB{_OPLUS} to
+ select()
+
+Co-authored-by: ShevT <evgeny.shishkov@gmail.com>
+Co-authored-by: Hikari-no-Tenshi <kyryljan.serhij@gmail.com>
+Signed-off-by: Pranav Vashi <neobuddy89@gmail.com>
+Signed-off-by: Saikrishna1504 <saikrishna26918@gmail.com>
+---
+ config/BoardConfigSoong.mk | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/config/BoardConfigSoong.mk b/config/BoardConfigSoong.mk
+index c2c25167..5e5301a2 100644
+--- a/config/BoardConfigSoong.mk
++++ b/config/BoardConfigSoong.mk
+@@ -39,6 +39,14 @@ ifneq ($(TARGET_CAMERA_PACKAGE_NAME),)
+     $(call soong_config_set,camera,package_name,$(TARGET_CAMERA_PACKAGE_NAME))
+ endif
+ 
++ifneq ($(TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB),)
++    $(error TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB is deprecated, please migrate to soong_config_set,camera,needs_client_info_lib)
++endif
++
++ifneq ($(TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB_OPLUS),)
++    $(error TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB_OPLUS is deprecated, please migrate to soong_config_set,camera,needs_client_info_lib_oplus)
++endif
++
+ # Charger
+ lineage_charger_density := mdpi
+ ifneq (,$(TARGET_SCREEN_DENSITY))
+-- 
+2.34.1
+
